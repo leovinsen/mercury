@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_reader/model/news_source.dart';
+import 'package:news_reader/screens/articles/articles_page.dart';
 import 'package:news_reader/utils/string_utils.dart';
 
 import 'news_source_avatar.dart';
@@ -20,27 +21,33 @@ class NewsSourcesListView extends StatelessWidget {
       itemCount: newsSources.length,
       itemBuilder: (_, index) {
         final newsSource = newsSources[index];
-        return Container(
-          height: 80.0,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              NewsSourceAvatar(
-                avatar: Text(
-                  StringUtils.getAbbreviation(newsSource.name),
-                  style: Theme.of(context).textTheme.headline,
+        return InkWell(
+          onTap: () => Navigator.of(context).pushNamed(
+            ArticlesPage.route,
+            arguments: ArticlesPageArguments(newsSource.id),
+          ),
+          child: Container(
+            height: 80.0,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                NewsSourceAvatar(
+                  avatar: Text(
+                    StringUtils.getAbbreviation(newsSource.name),
+                    style: Theme.of(context).textTheme.headline,
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Flexible(
-                child: NewsSourceInformation(
-                  sourceName: newsSource.name,
-                  sourceDescription: newsSource.description,
+                SizedBox(
+                  width: 10.0,
                 ),
-              ),
-            ],
+                Flexible(
+                  child: NewsSourceInformation(
+                    sourceName: newsSource.name,
+                    sourceDescription: newsSource.description,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
