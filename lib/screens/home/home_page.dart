@@ -5,6 +5,9 @@ import 'package:news_reader/bloc/home/home_bloc_commons.dart';
 import 'widgets/news_sources_listview.dart';
 
 class HomePage extends StatelessWidget {
+
+  static const route = "/";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -11,12 +11,19 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: Config.instance.appName,
-      home: BlocProvider<HomeBloc>(
-        create: (_) {
-          return HomeBloc(SourcesApiService());
-        },
-        child: HomePage(),
-      ),
+      initialRoute: HomePage.route,
+      routes: {
+        HomePage.route: (_) => _buildHome(),
+      },
+    );
+  }
+
+  Widget _buildHome() {
+    return BlocProvider<HomeBloc>(
+      create: (_) {
+        return HomeBloc(SourcesApiService());
+      },
+      child: HomePage(),
     );
   }
 }
