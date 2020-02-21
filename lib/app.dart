@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_reader/config/config.dart';
+import 'package:news_reader/service/sources_api_service.dart';
 
+import 'bloc/home/home_bloc.dart';
 import 'screens/home_page.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +11,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: Config.instance.appName,
-      home: HomePage(),
+      home: BlocProvider<HomeBloc>(
+        create: (_) {
+          return HomeBloc(SourcesApiService());
+        },
+        child: HomePage(),
+      ),
     );
   }
 }
