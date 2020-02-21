@@ -4,7 +4,7 @@ import 'package:news_reader/config/config.dart';
 import 'package:news_reader/service/sources_api_service.dart';
 
 import 'bloc/home/home_bloc.dart';
-import 'screens/home_page.dart';
+import 'screens/home/home_page.dart';
 
 class App extends StatelessWidget {
   @override

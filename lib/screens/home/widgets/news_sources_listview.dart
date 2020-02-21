@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_reader/model/news_source.dart';
-import 'package:news_reader/screens/widgets/news_source_avatar.dart';
-import 'package:news_reader/screens/widgets/news_source_information.dart';
-import 'package:news_reader/screens/widgets/news_source_separator.dart';
 import 'package:news_reader/utils/string_utils.dart';
+
+import 'news_source_avatar.dart';
+import 'news_source_information.dart';
+import 'news_source_separator.dart';
 
 class NewsSourcesListView extends StatelessWidget {
   final List<NewsSource> newsSources;
