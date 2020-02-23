@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_reader/config/config.dart';
 import 'package:news_reader/screens/articles/articles_page.dart';
+import 'package:news_reader/screens/articles_webview/news_article_webview.dart';
 import 'package:news_reader/service/articles_api_service.dart';
 import 'package:news_reader/service/sources_api_service.dart';
 
@@ -29,6 +30,16 @@ class App extends StatelessWidget {
                 newsSourceId: args.newsSourceId,
               ),
             ),
+          );
+        }
+
+        if (settings.name == NewsArticleWebView.route) {
+          final NewsArticleWebViewArguments args = settings.arguments;
+
+          return MaterialPageRoute(
+            builder: (_) => NewsArticleWebView(
+              articleUrl: args.articleUrl,
+            )
           );
         }
       },
