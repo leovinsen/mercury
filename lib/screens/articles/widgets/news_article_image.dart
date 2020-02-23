@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 class NewsArticleImage extends StatelessWidget {
   final String imageUrl;
 
-  const NewsArticleImage({Key key, @required this.imageUrl})
-      : assert(imageUrl != null),
-        super(key: key);
-        
+  const NewsArticleImage({Key key, this.imageUrl}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
