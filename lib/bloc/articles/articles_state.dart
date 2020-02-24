@@ -30,3 +30,15 @@ class ArticlesLoaded extends ArticlesState {
     return "$ArticlesLoaded { articles: $articles }";
   }
 }
+
+class LoadingNewArticles extends ArticlesState {
+  LoadingNewArticles();
+
+  @override
+  List<Object> get props => null;
+
+  @override
+  String toString() {
+    return "$LoadingNewArticles { }";
+  }
+}
