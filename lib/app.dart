@@ -10,6 +10,22 @@ import 'bloc/articles/articles_bloc.dart';
 import 'bloc/home/home_bloc.dart';
 import 'screens/home/home_page.dart';
 
+const MaterialColor whiteSwatch = const MaterialColor(
+  0xFFFFFFFF,
+  const <int, Color>{
+    50: Colors.white,
+    100: Colors.white,
+    200: Colors.white,
+    300: Colors.white,
+    400: Colors.white,
+    500: Colors.white,
+    600: Colors.white,
+    700: Colors.white,
+    800: Colors.white,
+    900: Colors.white,
+  },
+);
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,6 +35,9 @@ class App extends StatelessWidget {
       routes: {
         HomePage.route: (_) => _buildHome(),
       },
+      theme: ThemeData(
+        primarySwatch: whiteSwatch
+      ),
       onGenerateRoute: (settings) {
         if (settings.name == ArticlesPage.route) {
           final ArticlesPageArguments args = settings.arguments;

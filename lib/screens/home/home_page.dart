@@ -11,21 +11,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (_, state) {
-          if (state is HomeInitialState) {
-            BlocProvider.of<HomeBloc>(context).add(LoadNewsSources());
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state is NewsSourcesLoaded) {
-            return NewsSourcesListView(newsSources: state.newsSources);
-          }
+      appBar: AppBar(
+      elevation: 0,
+      ),
+      body: Container(
+        color: Colors.white,
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (_, state) {
+            if (state is HomeInitialState) {
+              BlocProvider.of<HomeBloc>(context).add(LoadNewsSources());
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (state is NewsSourcesLoaded) {
+              return NewsSourcesListView(newsSources: state.newsSources);
+            }
 
-          return Container();
-        },
+            return Container();
+          },
+        ),
       ),
     );
   }

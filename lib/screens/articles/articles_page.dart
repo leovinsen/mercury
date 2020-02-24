@@ -33,36 +33,40 @@ class _ArticlesPageState extends State<ArticlesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: ArticleSearchBar(
           textController: _textController,
           onTextChanged: _searchAfterDelay,
         ),
       ),
-      body: BlocBuilder<ArticlesBloc, ArticlesState>(
-        builder: (_, state) {
-          if (state is InitialArticlesState) {
-            BlocProvider.of<ArticlesBloc>(context)
-                .add(LoadArticlesBySource(widget.newsSourceId, ""));
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state is LoadingNewArticles) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state is ArticlesLoaded) {
-            return Container(
-              padding: const EdgeInsets.all(20.0),
-              child: NewsArticlesListView(
-                articles: state.articles,
-              ),
-            );
-          }
+      body: Container(
+        color: Colors.white,
+        child: BlocBuilder<ArticlesBloc, ArticlesState>(
+          builder: (_, state) {
+            if (state is InitialArticlesState) {
+              BlocProvider.of<ArticlesBloc>(context)
+                  .add(LoadArticlesBySource(widget.newsSourceId, ""));
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (state is LoadingNewArticles) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (state is ArticlesLoaded) {
+              return Container(
+                padding: const EdgeInsets.all(20.0),
+                child: NewsArticlesListView(
+                  articles: state.articles,
+                ),
+              );
+            }
 
-          return Container();
-        },
+            return Container();
+          },
+        ),
       ),
     );
   }
