@@ -76,11 +76,17 @@ class App extends StatelessWidget {
 
   TextTheme _buildTextTheme() {
     var baseTheme = GoogleFonts.latoTextTheme();
+    var merriweatherTheme = GoogleFonts.merriweather();
     return baseTheme.copyWith(
-      title: baseTheme.title
-          .copyWith(fontFamily: GoogleFonts.merriweather().fontFamily),
-      subtitle: baseTheme.subtitle
-          .copyWith(fontFamily: GoogleFonts.merriweather().fontFamily),
+      title: baseTheme.title.copyWith(
+        fontFamily: merriweatherTheme.fontFamily,
+      ),
+      subtitle: baseTheme.subtitle.copyWith(
+        fontFamily: merriweatherTheme.fontFamily,
+      ),
+      display1: baseTheme.display1.copyWith(
+        fontFamily: merriweatherTheme.fontFamily,
+      )
     );
     // final TextTheme defaultTheme = Typography(platform: defaultTargetPlatform).black;
     // return defaultTheme.copyWith(
