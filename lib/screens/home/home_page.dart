@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_reader/bloc/home/home_bloc_commons.dart';
 import 'package:news_reader/screens/home/widgets/app_title.dart';
+import 'package:news_reader/widgets/my_circular_progress_indicator.dart';
 
 import 'widgets/news_sources_listview.dart';
 
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
                     if (state is HomeInitialState) {
                       BlocProvider.of<HomeBloc>(context).add(LoadNewsSources());
                       return Center(
-                        child: CircularProgressIndicator(),
+                        child: MyCircularProgressIndicator()
                       );
                     }
                     if (state is NewsSourcesLoaded) {
