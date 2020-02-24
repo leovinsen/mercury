@@ -20,7 +20,7 @@ class ArticlesPage extends StatelessWidget {
         builder: (_, state) {
           if (state is InitialArticlesState) {
             BlocProvider.of<ArticlesBloc>(context)
-                .add(LoadArticlesBySource(newsSourceId));
+                .add(LoadArticlesBySource(newsSourceId, ""));
             return Center(
               child: CircularProgressIndicator(),
             );

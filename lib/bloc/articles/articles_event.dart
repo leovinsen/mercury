@@ -6,8 +6,9 @@ abstract class ArticlesEvent extends Equatable {
 
 class LoadArticlesBySource extends ArticlesEvent {
   final String newsSourceId;
+  final String query;
 
-  LoadArticlesBySource(this.newsSourceId);
+  LoadArticlesBySource(this.newsSourceId, this.query);
 
   @override
   List<Object> get props => [newsSourceId];

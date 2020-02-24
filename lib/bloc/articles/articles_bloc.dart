@@ -16,7 +16,7 @@ class ArticlesBloc extends BaseBloc<ArticlesEvent, ArticlesState> {
   Stream<ArticlesState> mapEventToState(ArticlesEvent event) async* {
     if (event is LoadArticlesBySource) {
       var articles =
-          await articlesApiService.getBySourceId(event.newsSourceId);
+          await articlesApiService.getBySourceIdAndQuery(event.newsSourceId, event.query);
       yield ArticlesLoaded(articles);
     }
   }
