@@ -15,6 +15,6 @@ class LoadArticlesBySource extends ArticlesEvent {
 
   @override
   String toString() {
-    return '$LoadArticlesBySource { newsId: $newsSourceId }';
+    return '$LoadArticlesBySource { newsId: $newsSourceId, query: $query }';
   }
 }
