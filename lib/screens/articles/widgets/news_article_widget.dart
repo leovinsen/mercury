@@ -31,6 +31,7 @@ class NewsArticleWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 NewsArticleTitle(title: article.title),
+                SizedBox(height: 5.0,),
                 NewsArticlePublicationTime(dateTime: article.publishedAt),
               ],
             ),

@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:news_reader/config/config.dart';
 import 'package:news_reader/screens/articles/articles_page.dart';
 import 'package:news_reader/screens/articles_webview/news_article_webview.dart';
@@ -35,9 +37,8 @@ class App extends StatelessWidget {
       routes: {
         HomePage.route: (_) => _buildHome(),
       },
-      theme: ThemeData(
-        primarySwatch: whiteSwatch
-      ),
+      theme:
+          ThemeData(primarySwatch: whiteSwatch, textTheme: _buildTextTheme()),
       onGenerateRoute: (settings) {
         if (settings.name == ArticlesPage.route) {
           final ArticlesPageArguments args = settings.arguments;
@@ -56,10 +57,9 @@ class App extends StatelessWidget {
           final NewsArticleWebViewArguments args = settings.arguments;
 
           return MaterialPageRoute(
-            builder: (_) => NewsArticleWebView(
-              articleUrl: args.articleUrl,
-            )
-          );
+              builder: (_) => NewsArticleWebView(
+                    articleUrl: args.articleUrl,
+                  ));
         }
       },
     );
@@ -72,5 +72,21 @@ class App extends StatelessWidget {
       },
       child: HomePage(),
     );
+  }
+
+  TextTheme _buildTextTheme() {
+    var baseTheme = GoogleFonts.latoTextTheme();
+    return baseTheme.copyWith(
+      title: baseTheme.title
+          .copyWith(fontFamily: GoogleFonts.merriweather().fontFamily),
+      subtitle: baseTheme.subtitle
+          .copyWith(fontFamily: GoogleFonts.merriweather().fontFamily),
+    );
+    // final TextTheme defaultTheme = Typography(platform: defaultTargetPlatform).black;
+    // return defaultTheme.copyWith(
+
+    //   title: defaultTheme.title.copyWith(fontFamily: GoogleFonts.merriweather().fontFamily),
+
+    // );
   }
 }

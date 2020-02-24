@@ -14,6 +14,7 @@ abstract class Config {
 
   Config(this.env) {
     instance = this;
+    WidgetsFlutterBinding.ensureInitialized();
     runApp(App());
   }
 }

@@ -11,7 +11,7 @@ class NewsArticleTitle extends StatelessWidget {
     return Text(
       title,
       maxLines: 2,
-      style: Theme.of(context).textTheme.title,
+      style: Theme.of(context).textTheme.subtitle,
       overflow: TextOverflow.ellipsis,
     );
   }
