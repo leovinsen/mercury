@@ -14,9 +14,13 @@ class NewsSourceInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.max,
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Text(sourceName, style: Theme.of(context).textTheme.title),
+        Text(sourceName,
+            style: Theme.of(context)
+                .textTheme
+                .subtitle
+                .apply(fontSizeFactor: 1.3)),
         SizedBox(
           height: 5.0,
         ),

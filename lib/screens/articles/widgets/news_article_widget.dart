@@ -31,6 +31,7 @@ class NewsArticleWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 NewsArticleTitle(title: article.title),
+                SizedBox(height: 5.0,),
                 NewsArticlePublicationTime(dateTime: article.publishedAt),
               ],
             ),
@@ -38,14 +39,5 @@ class NewsArticleWidget extends StatelessWidget {
         ],
       ),
     );
-    // return Container(
-    //   decoration: BoxDecoration(
-    //     borderRadius: BorderRadius.circular(10.0),
-    //     color: Color(0xFFFDFDFD),
-    //     border: Border.all(
-    //       color: Color(0xFFF1F1F1),
-    //     ),
-    //   ),
-    // );
   }
 }

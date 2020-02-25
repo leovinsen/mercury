@@ -19,16 +19,16 @@ class HomeInitialState extends HomeState {
 
 class NewsSourcesLoaded extends HomeState {
 
-  final List<NewsSource> newsSources;
+  final Map<String, List<NewsSource>> newsSourcesMap;
 
-  NewsSourcesLoaded(this.newsSources);
+  NewsSourcesLoaded(this.newsSourcesMap);
 
   @override
-  List<Object> get props => [newsSources];
+  List<Object> get props => [newsSourcesMap];
 
   @override
   String toString() {
-    return '$NewsSourcesLoaded { sources: $newsSources }';
+    return '$NewsSourcesLoaded { sources: $newsSourcesMap }';
   }
 
 }

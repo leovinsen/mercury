@@ -20,10 +20,19 @@ class _NewsArticleWebViewState extends State<NewsArticleWebView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+      ),
       body: Column(
         children: <Widget>[
-          _loading ? LinearProgressIndicator() : Container(),
+          _loading
+              ? Container(
+                  height: 3.0,
+                  child: LinearProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                  ),
+                )
+              : Container(),
           Flexible(
             child: WebView(
               initialUrl: widget.articleUrl,
