@@ -86,7 +86,11 @@ class App extends StatelessWidget {
       ),
       display1: baseTheme.display1.copyWith(
         fontFamily: merriweatherTheme.fontFamily,
-      )
+      ),
+      headline: baseTheme.headline.copyWith(
+        fontFamily: merriweatherTheme.fontFamily,
+        fontWeight: FontWeight.w600,
+      ),
     );
     // final TextTheme defaultTheme = Typography(platform: defaultTargetPlatform).black;
     // return defaultTheme.copyWith(

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_reader/model/news_source.dart';
 import 'package:news_reader/screens/articles/articles_page.dart';
-import 'package:news_reader/utils/string_utils.dart';
 
-import 'news_source_avatar.dart';
 import 'news_source_information.dart';
-import 'news_source_separator.dart';
 
 class NewsSourcesListView extends StatelessWidget {
   final List<NewsSource> newsSources;
@@ -17,7 +14,9 @@ class NewsSourcesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (_, index) => NewsSourceSeparator(),
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      separatorBuilder: (_, index) => SizedBox(height: 20.0,),
       itemCount: newsSources.length,
       itemBuilder: (_, index) {
         final newsSource = newsSources[index];
@@ -27,19 +26,17 @@ class NewsSourcesListView extends StatelessWidget {
             arguments: ArticlesPageArguments(newsSource.id),
           ),
           child: Container(
-            height: 80.0,
+            padding: const EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: Color(0xFFFDFDFD),
+              border: Border.all(
+                color: Color(0xFFF1F1F1),
+              ),
+            ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                NewsSourceAvatar(
-                  avatar: Text(
-                    StringUtils.getAbbreviation(newsSource.name),
-                    style: Theme.of(context).textTheme.headline,
-                  ),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
                 Flexible(
                   child: NewsSourceInformation(
                     sourceName: newsSource.name,
@@ -51,7 +48,6 @@ class NewsSourcesListView extends StatelessWidget {
           ),
         );
       },
-      padding: const EdgeInsets.all(20.0),
     );
   }
 }
