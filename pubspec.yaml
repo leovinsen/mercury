@@ -32,6 +32,7 @@ dependencies:
   intl: ^0.16.1
   webview_flutter: ^0.3.19+8
   google_fonts: ^0.3.9
+  transparent_image: ^1.0.0
 
 dev_dependencies:
   build_runner: ^1.0.0
@@ -56,6 +57,8 @@ flutter:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
+  assets:
+   - assets/placeholder_no_image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

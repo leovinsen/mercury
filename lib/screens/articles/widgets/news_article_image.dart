@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class NewsArticleImage extends StatelessWidget {
-
   final height = 70.0;
   final width = 90.0;
 
@@ -14,18 +14,19 @@ class NewsArticleImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(5.0),
       child: imageUrl != null
-          ? Image.network(
-              imageUrl,
-              scale: 1.0,
+          ? FadeInImage.memoryNetwork(
+              image: imageUrl,
+              placeholder: kTransparentImage,
               repeat: ImageRepeat.noRepeat,
               width: width,
               height: height,
               fit: BoxFit.cover,
             )
-          : Container(
+          : Image.asset(
+              'assets/placeholder_no_image.png',
               width: width,
               height: height,
-              color: Colors.grey,
+              fit: BoxFit.cover,
             ),
     );
   }
