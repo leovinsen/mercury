@@ -8,6 +8,7 @@ part of 'news_article.dart';
 
 NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) {
   return NewsArticle(
+    json['id'] as int,
     json['author'] as String,
     json['title'] as String,
     json['description'] as String,
@@ -22,6 +23,7 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'author': instance.author,
       'title': instance.title,
       'description': instance.description,
@@ -37,6 +39,7 @@ Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) =>
 
 String _$NewsArticleToString(NewsArticle o) {
   return """NewsArticle{
+  id: ${o.id},
   author: ${o.author},
   title: ${o.title},
   description: ${o.description},
