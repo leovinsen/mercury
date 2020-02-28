@@ -11,9 +11,12 @@ class ArticlesPage extends StatefulWidget {
   static const route = '/articles';
 
   final String newsSourceId;
+  final String newsSourceName;
 
-  const ArticlesPage({Key key, @required this.newsSourceId})
+  const ArticlesPage(
+      {Key key, @required this.newsSourceId, this.newsSourceName})
       : assert(newsSourceId != null),
+        assert(newsSourceName != null),
         super(key: key);
 
   @override
@@ -41,32 +44,46 @@ class _ArticlesPageState extends State<ArticlesPage> {
         ),
       ),
       body: Container(
+        padding: const EdgeInsets.all(20.0),
         color: Colors.white,
-        child: BlocBuilder<ArticlesBloc, ArticlesState>(
-          builder: (_, state) {
-            if (state is InitialArticlesState) {
-              BlocProvider.of<ArticlesBloc>(context)
-                  .add(LoadArticlesBySource(widget.newsSourceId, ""));
-              return Center(
-                child: MyCircularProgressIndicator(),
-              );
-            }
-            if (state is LoadingNewArticles) {
-              return Center(
-                child: MyCircularProgressIndicator(),
-              );
-            }
-            if (state is ArticlesLoaded) {
-              return Container(
-                padding: const EdgeInsets.all(20.0),
-                child: NewsArticlesListView(
-                  articles: state.articles,
-                ),
-              );
-            }
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                widget.newsSourceName,
+                style: Theme.of(context).textTheme.headline,
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              BlocBuilder<ArticlesBloc, ArticlesState>(
+                builder: (_, state) {
+                  if (state is InitialArticlesState) {
+                    BlocProvider.of<ArticlesBloc>(context)
+                        .add(LoadArticlesBySource(widget.newsSourceId, ""));
+                    return Center(
+                      child: MyCircularProgressIndicator(),
+                    );
+                  }
+                  if (state is LoadingNewArticles) {
+                    return Center(
+                      child: MyCircularProgressIndicator(),
+                    );
+                  }
+                  if (state is ArticlesLoaded) {
+                    return Container(
+                      child: NewsArticlesListView(
+                        articles: state.articles,
+                      ),
+                    );
+                  }
 
-            return Container();
-          },
+                  return Container();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -85,6 +102,7 @@ class _ArticlesPageState extends State<ArticlesPage> {
 
 class ArticlesPageArguments {
   final String newsSourceId;
+  final String newsSourceName;
 
-  ArticlesPageArguments(this.newsSourceId);
+  ArticlesPageArguments(this.newsSourceId, this.newsSourceName);
 }

@@ -47,6 +47,7 @@ class App extends StatelessWidget {
               create: (_) => ArticlesBloc(ArticlesApiService()),
               child: ArticlesPage(
                 newsSourceId: args.newsSourceId,
+                newsSourceName: args.newsSourceName,
               ),
             ),
           );

@@ -16,14 +16,19 @@ class NewsSourcesListView extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      separatorBuilder: (_, index) => SizedBox(height: 20.0,),
+      separatorBuilder: (_, index) => SizedBox(
+        height: 20.0,
+      ),
       itemCount: newsSources.length,
       itemBuilder: (_, index) {
         final newsSource = newsSources[index];
         return InkWell(
           onTap: () => Navigator.of(context).pushNamed(
             ArticlesPage.route,
-            arguments: ArticlesPageArguments(newsSource.id),
+            arguments: ArticlesPageArguments(
+              newsSource.id,
+              newsSource.name,
+            ),
           ),
           child: Container(
             padding: const EdgeInsets.all(20.0),

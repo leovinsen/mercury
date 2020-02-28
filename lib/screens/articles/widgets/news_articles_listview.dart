@@ -12,6 +12,8 @@ class NewsArticlesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       separatorBuilder: (_, index) => SizedBox(height: 20.0),
       itemBuilder: (_, index) {
         return NewsArticleWidget(article: articles[index]);
