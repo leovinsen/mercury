@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
       var articleDao = ArticleDao(db);
       sl.registerSingleton<ArticleDao>(articleDao, signalsReady: true);
       await Future.delayed(Duration(milliseconds: 500));
-      Navigator.of(context).pushNamed(RootPage.route);
+      Navigator.of(context).pushReplacementNamed(RootPage.route);
     });
   }
 
