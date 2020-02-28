@@ -12,12 +12,12 @@ const articleContent = "content";
 const articleCreateTableSql = """
   CREATE TABLE $tableArticle (
     $articleId INTEGER PRIMARY KEY,
-    $articleAuthor TEXT NOT NULL,
-    $articleDescription TEXT NOT NULL,
+    $articleAuthor TEXT,
+    $articleDescription TEXT,
     $articleTitle TEXT NOT NULL,
     $articleUrl TEXT NOT NULL UNIQUE,
     $articleUrlToImage TEXT,
     $articlePublishedAt TEXT NOT NULL,
-    $articleContent TEXT NOT NULL
+    $articleContent TEXT
   )
 """;
