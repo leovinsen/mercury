@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/bloc/favorite_articles/favorite_articles_bloc_commons.dart';
-import 'package:mercury/screens/articles/widgets/news_articles_listview.dart';
+import 'package:mercury/screens/root/widgets/favorite_articles_listview.dart';
 import 'package:mercury/widgets/my_circular_progress_indicator.dart';
 
 class FavoriteArticlesScreen extends StatelessWidget {
@@ -29,7 +29,7 @@ class FavoriteArticlesScreen extends StatelessWidget {
             alignment: Alignment.center,
             padding: EdgeInsets.all(20.0),
             child: articles.length > 0
-                ? NewsArticlesListView(
+                ? FavoriteArticlesListView(
                     articles: state.articles,
                   )
                 : Text(
