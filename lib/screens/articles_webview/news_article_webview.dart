@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_reader/database/article_dao.dart';
-import 'package:news_reader/database/database.dart';
+import 'package:news_reader/global.dart';
 import 'package:news_reader/model/news_article.dart';
 import 'package:news_reader/screens/articles_webview/widgets/favorite_button.dart';
+import 'package:news_reader/widgets/simple_alert_dialog.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -24,15 +25,12 @@ class NewsArticleWebView extends StatefulWidget {
 class _NewsArticleWebViewState extends State<NewsArticleWebView> {
   bool _loading = true;
   bool _isSaved = false;
-  ArticleDao _articleDao;
 
   @override
   void initState() {
     super.initState();
-    //TODO: Figure how to use get_it for DI
-    DatabaseProvider.instance.db.then((db) async {
-      _articleDao = ArticleDao(db);
-      _isSaved = await _articleDao.findByUrl(widget.article.url) != null;
+    sl.get<ArticleDao>().findByUrl(widget.article.url).then((article) {
+      _isSaved = article != null;
       setState(() {});
     });
   }
@@ -43,7 +41,10 @@ class _NewsArticleWebViewState extends State<NewsArticleWebView> {
       appBar: AppBar(
         elevation: 0,
         titleSpacing: 0.0,
-        title: Text(widget.article.url, style: Theme.of(context).textTheme.body1,),
+        title: Text(
+          widget.article.url,
+          style: Theme.of(context).textTheme.body1,
+        ),
         actions: <Widget>[
           _isSaved
               ? UnfavoriteButton(
@@ -80,37 +81,36 @@ class _NewsArticleWebViewState extends State<NewsArticleWebView> {
 
   void _favorite() async {
     try {
-      await _articleDao.add(widget.article);
+      await sl.get<ArticleDao>().add(widget.article);
       _isSaved = true;
       setState(() {});
     } on DatabaseException {
-      ///Prevent errors when user spams the [FavoriteButton] due to multiple insertion queued 
-      return;
+      showDialog(
+        context: context,
+        builder: (_) =>
+            SimpleAlertDialog(text: 'Failed to favorite article (DB ERROR)'),
+      );
     }
   }
 
   void _unfavorite() async {
     try {
-      if (await _articleDao.deleteByUrl(widget.article.url) == 1) {
+      if (await sl.get<ArticleDao>().deleteByUrl(widget.article.url) == 1) {
         _isSaved = false;
         setState(() {});
       } else {
         showDialog(
           context: context,
-          builder: (_) => AlertDialog(
-            content: Text('Failed to unfavorite article'),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('OK'),
-                onPressed: () => Navigator.of(context).pop(),
-              )
-            ],
-          ),
+          builder: (_) =>
+              SimpleAlertDialog(text: 'Failed to unfavorite article'),
         );
       }
     } on DatabaseException {
-      ///Prevent errors when user spams the [UnfavoriteButton] due to multiple deletes queued 
-      return;
+      showDialog(
+        context: context,
+        builder: (_) =>
+            SimpleAlertDialog(text: 'Failed to unfavorite article (DB ERROR)'),
+      );
     }
   }
 }

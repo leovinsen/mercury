@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_reader/bloc/favorite_articles/favorite_articles_bloc.dart';
 import 'package:news_reader/bloc/home/home_bloc_commons.dart';
 import 'package:news_reader/database/article_dao.dart';
-import 'package:news_reader/database/database.dart';
+import 'package:news_reader/global.dart';
 import 'package:news_reader/service/sources_api_service.dart';
 import 'package:news_reader/widgets/drawer_tile.dart';
 import 'package:news_reader/widgets/mercury_drawer_header.dart';
@@ -19,44 +19,43 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int _chosenPage = 0;
-  ArticleDao _articleDao;
+  int _chosenPage;
 
   @override
   void initState() {
     super.initState();
-    //TODO: Get instance with GetIt
-    DatabaseProvider.instance.db.then((db) => _articleDao = ArticleDao(db));
+    _chosenPage = 0;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: _buildAppBarTitle(),
-          centerTitle: true,
-          elevation: 0,
+      appBar: AppBar(
+        title: _buildAppBarTitle(),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            MercuryDrawerHeader(),
+            DrawerTile(
+                chosenIndex: _chosenPage,
+                tileIndex: 0,
+                tileName: 'Home',
+                onTap: () => _selectWidget(0),
+                iconData: Icons.home),
+            DrawerTile(
+                chosenIndex: _chosenPage,
+                tileIndex: 1,
+                tileName: 'Favorited Articles',
+                onTap: () => _selectWidget(1),
+                iconData: Icons.favorite)
+          ],
         ),
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              MercuryDrawerHeader(),
-              DrawerTile(
-                  chosenIndex: _chosenPage,
-                  tileIndex: 0,
-                  tileName: 'Home',
-                  onTap: () => _selectWidget(0),
-                  iconData: Icons.home),
-              DrawerTile(
-                  chosenIndex: _chosenPage,
-                  tileIndex: 1,
-                  tileName: 'Favorited Articles',
-                  onTap: () => _selectWidget(1),
-                  iconData: Icons.favorite)
-            ],
-          ),
-        ),
-        body: _buildWidget());
+      ),
+      body: _buildWidget(),
+    );
   }
 
   Widget _buildAppBarTitle() {
@@ -87,7 +86,7 @@ class _RootPageState extends State<RootPage> {
         break;
       case 1:
         return BlocProvider<FavoriteArticlesBloc>(
-          create: (_) => FavoriteArticlesBloc(_articleDao),
+          create: (_) => FavoriteArticlesBloc(sl.get<ArticleDao>()),
           child: FavoriteArticlesScreen(),
         );
         break;

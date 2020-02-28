@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_bloc: ^2.1.1
   equatable: ^0.6.0
-  get_it: ^3.1.0
+  get_it: ^4.0.0
   json_annotation: ^3.0.0
   to_string: ^1.2.1
   dio: ^3.0.8

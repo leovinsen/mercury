@@ -5,6 +5,7 @@ import 'package:news_reader/config/config.dart';
 import 'package:news_reader/screens/articles/articles_page.dart';
 import 'package:news_reader/screens/articles_webview/news_article_webview.dart';
 import 'package:news_reader/screens/root/root_page.dart';
+import 'package:news_reader/screens/splash/splash_page.dart';
 import 'package:news_reader/service/articles_api_service.dart';
 
 import 'bloc/articles/articles_bloc.dart';
@@ -30,8 +31,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: Config.instance.appName,
-      initialRoute: RootPage.route,
+      initialRoute: SplashPage.route,
       routes: {
+        SplashPage.route: (_) => SplashPage(),
         RootPage.route: (_) => RootPage(),
       },
       theme:
