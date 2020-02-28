@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,7 +57,7 @@ class App extends StatelessWidget {
 
           return MaterialPageRoute(
               builder: (_) => NewsArticleWebView(
-                    articleUrl: args.articleUrl,
+                    article: args.article
                   ));
         }
       },

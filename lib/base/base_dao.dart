@@ -5,12 +5,14 @@ abstract class BaseDao<T> {
   final Database _db;
   const BaseDao(this._db);
 
+  Database get db => _db;
+
   String tableNameInDB();
 
-  ///return the entity.fromDB() 
+  ///return the entity.fromDB()
   T entityFromDB(Map<String, dynamic> map);
 
-  ///return entity.toDB() 
+  ///return entity.toDB()
   Map<String, dynamic> entityToDB(T entity);
 
   ///Define the primary key clause for [findByPrimaryKey] to work
@@ -53,5 +55,11 @@ abstract class BaseDao<T> {
     var result = await _db.insert(tableNameInDB(), entityToDB(entity));
 
     return result;
+  }
+
+  Future<int> delete(T entity) async {
+    return await _db.delete(tableNameInDB(),
+        where: primaryKeyWhereClause(),
+        whereArgs: [primaryKeyWhereArgs(entity)]);
   }
 }

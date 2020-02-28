@@ -33,15 +33,19 @@ class ArticleDao extends BaseDao<NewsArticle> {
   }
 
   Future<NewsArticle> findByUrl(String url) async {
-    var result =  await query(
+    var result = await query(
       where: 'url = ?',
       whereArgs: [url],
     );
 
-    if(result.length == 0) return null;
+    if (result.length == 0) return null;
 
-    if(result.length > 1) throw ResultMoreThanOneException(result);
+    if (result.length > 1) throw ResultMoreThanOneException(result);
 
     return NewsArticle.fromDB(result[0]);
+  }
+
+  Future<int> deleteByUrl(String url) async {
+    return await db.delete(tableNameInDB(), where: 'url=?', whereArgs: [url]);
   }
 }
