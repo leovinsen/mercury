@@ -1,0 +1,100 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_reader/bloc/favorite_articles/favorite_articles_bloc.dart';
+import 'package:news_reader/bloc/home/home_bloc_commons.dart';
+import 'package:news_reader/database/article_dao.dart';
+import 'package:news_reader/database/database.dart';
+import 'package:news_reader/service/sources_api_service.dart';
+
+import 'widgets/favorite_articles_screen.dart';
+import 'widgets/home_screen.dart';
+
+class RootPage extends StatefulWidget {
+  static const route = "/";
+
+  @override
+  _RootPageState createState() => _RootPageState();
+}
+
+class _RootPageState extends State<RootPage> {
+  int _chosenPage = 0;
+  ArticleDao _articleDao;
+
+  @override
+  void initState() {
+    super.initState();
+    //TODO: Get instance with GetIt
+    DatabaseProvider.instance.db.then((db) => _articleDao = ArticleDao(db));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: _buildAppBarTitle(),
+          centerTitle: true,
+          elevation: 0,
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+                onTap: () => _selectWidget(0),
+              ),
+              ListTile(
+                leading: Icon(Icons.favorite),
+                title: Text('Favorited Articles'),
+                onTap: () => _selectWidget(1),
+              )
+            ],
+          ),
+        ),
+        body: _buildWidget());
+  }
+
+  Widget _buildAppBarTitle() {
+    String txt;
+    switch (_chosenPage) {
+      case 0:
+        txt = HomeScreen.appBarTitle;
+        break;
+      case 1:
+        txt = FavoriteArticlesScreen.appbarTitle;
+        break;
+      default:
+        txt = null;
+        break;
+    }
+    return Text(txt);
+  }
+
+  Widget _buildWidget() {
+    switch (_chosenPage) {
+      case 0:
+        return BlocProvider<HomeBloc>(
+          create: (_) {
+            return HomeBloc(SourcesApiService());
+          },
+          child: HomeScreen(),
+        );
+        break;
+      case 1:
+        return BlocProvider<FavoriteArticlesBloc>(
+          create: (_) => FavoriteArticlesBloc(_articleDao),
+          child: FavoriteArticlesScreen(),
+        );
+        break;
+      default:
+        return null;
+        break;
+    }
+  }
+
+  void _selectWidget(int i) {
+    _chosenPage = i;
+    setState(() {});
+    Navigator.of(context).pop();
+  }
+}

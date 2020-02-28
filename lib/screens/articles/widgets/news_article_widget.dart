@@ -17,7 +17,7 @@ class NewsArticleWidget extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed(
         NewsArticleWebView.route,
-        arguments: NewsArticleWebViewArguments(article.url),
+        arguments: NewsArticleWebViewArguments(article),
       ),
       child: Row(
         children: <Widget>[

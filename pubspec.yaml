@@ -33,6 +33,7 @@ dependencies:
   webview_flutter: ^0.3.19+8
   google_fonts: ^0.3.9
   transparent_image: ^1.0.0
+  sqflite: ^1.2.0
 
 dev_dependencies:
   build_runner: ^1.0.0
@@ -40,6 +41,11 @@ dev_dependencies:
   to_string_generator: ^1.2.1
   flutter_test:
     sdk: flutter
+  sqflite_ffi_test:
+    git:
+      url: git://github.com/tekartik/sqflite_more
+      ref: dart2
+      path: sqflite_ffi_test
 
 
 # For information on the generic Dart part of this file, see the

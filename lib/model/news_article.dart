@@ -8,6 +8,7 @@ part 'news_article.g.dart';
   prettyPrint: true
 )
 class NewsArticle {
+  final int id;
   final String author;
   final String title;
   final String description;
@@ -16,13 +17,14 @@ class NewsArticle {
   final DateTime publishedAt;
   final String content;
 
-  NewsArticle(this.author, this.title, this.description, this.url,
-      this.urlToImage, this.publishedAt, this.content);
+  NewsArticle(this.id, this.author, this.title, this.description, this.url, this.urlToImage, this.publishedAt, this.content);
 
+  // Not using the @JsonSerializable constructor because the API returns null as "null" 
   // factory NewsArticle.fromJson(Map<String, dynamic> json) => 
       // _$NewsArticleFromJson(json);
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) => NewsArticle(
+    json['id'] as int,
     json['author'] as String,
     json['title'] as String,
     json['description'] as String,
@@ -34,8 +36,11 @@ class NewsArticle {
     json['content'] as String,
   );
 
+  factory NewsArticle.fromDB(Map<String, dynamic> map) => NewsArticle.fromJson(map);
 
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
+
+  Map<String, dynamic> toDB() => toJson();
 
   @override
   String toString() => _$NewsArticleToString(this);
