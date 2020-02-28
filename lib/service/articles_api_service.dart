@@ -14,7 +14,7 @@ class ArticlesApiService extends BaseApiService {
     if (query == null) throw SearchQueryIsNullException();
 
     Response response = await dio
-        .get("$endpoint?sources=$sourceId&qInTitle=$query&apiKey=$apiKey")
+        .get("$endpoint?sources=$sourceId&qInTitle=$query&pageSize=100&apiKey=$apiKey")
         .catchError(print);
 
     ArticlesResponse articlesResponse =
