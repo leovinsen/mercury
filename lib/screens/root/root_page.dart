@@ -4,6 +4,7 @@ import 'package:mercury/bloc/favorite_articles/favorite_articles_bloc.dart';
 import 'package:mercury/bloc/home/home_bloc_commons.dart';
 import 'package:mercury/database/article_dao.dart';
 import 'package:mercury/global.dart';
+import 'package:mercury/screens/root/widgets/settings_screen.dart';
 import 'package:mercury/service/sources_api_service.dart';
 import 'package:mercury/widgets/drawer_tile.dart';
 import 'package:mercury/widgets/mercury_drawer_header.dart';
@@ -50,7 +51,13 @@ class _RootPageState extends State<RootPage> {
                 tileIndex: 1,
                 tileName: 'Favorited Articles',
                 onTap: () => _selectWidget(1),
-                iconData: Icons.favorite)
+                iconData: Icons.favorite),
+            DrawerTile(
+                chosenIndex: _chosenPage,
+                tileIndex: 2,
+                tileName: 'Settings',
+                onTap: () => _selectWidget(2),
+                iconData: Icons.settings),
           ],
         ),
       ),
@@ -66,6 +73,9 @@ class _RootPageState extends State<RootPage> {
         break;
       case 1:
         txt = FavoriteArticlesScreen.appbarTitle;
+        break;
+      case 2:
+        txt = SettingsScreen.appBarTitle;
         break;
       default:
         txt = null;
@@ -83,16 +93,15 @@ class _RootPageState extends State<RootPage> {
           },
           child: HomeScreen(),
         );
-        break;
       case 1:
         return BlocProvider<FavoriteArticlesBloc>(
           create: (_) => FavoriteArticlesBloc(sl.get<ArticleDao>()),
           child: FavoriteArticlesScreen(),
         );
-        break;
+      case 2:
+        return SettingsScreen();
       default:
         return null;
-        break;
     }
   }
 

@@ -62,4 +62,8 @@ abstract class BaseDao<T> {
         where: primaryKeyWhereClause(),
         whereArgs: [primaryKeyWhereArgs(entity)]);
   }
+
+  Future<int> deleteAll() async {
+    return await _db.delete(tableNameInDB());
+  }
 }
