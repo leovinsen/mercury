@@ -1,16 +1,11 @@
-# news_reader
+# Mercury
 
-A new Flutter project.
+A Flutter news app which fetches news from newsapi.org. Developed for Flutter Jakarta - App Challenge #1.
+The name 'Mercury' comes from Roman God Mercury, a god of communications and messages, also equivalent to Hermes in Greek mythology. 
 
-## Getting Started
+## Features (v1.0)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Select curated list of news sources which are divided into three categories: English, Mandarin and Others.
+- Tap on a source to see articles from that source. 
+- Filter articles based on title.
+- Favorite an article that you like by tapping on 'Heart' button. Favorited articles can be accessed through the page 'Favorited Articles'
