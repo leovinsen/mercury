@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/database/article_dao.dart';
-import 'package:news_reader/database/database.dart';
-import 'package:news_reader/global.dart';
-import 'package:news_reader/screens/root/root_page.dart';
-import 'package:news_reader/screens/root/widgets/app_title.dart';
+import 'package:mercury/database/article_dao.dart';
+import 'package:mercury/database/database.dart';
+import 'package:mercury/global.dart';
+import 'package:mercury/screens/root/root_page.dart';
+import 'package:mercury/screens/root/widgets/app_title.dart';
 
 class SplashPage extends StatefulWidget {
   static const route = "/splash";

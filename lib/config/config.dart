@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/app.dart';
+import 'package:mercury/app.dart';
 
 enum EnvType { development, production }
 

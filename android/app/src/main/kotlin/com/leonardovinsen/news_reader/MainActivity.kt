@@ -1,4 +1,4 @@
-package com.leonardovinsen.news_reader
+package com.leonardovinsen.mercury
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

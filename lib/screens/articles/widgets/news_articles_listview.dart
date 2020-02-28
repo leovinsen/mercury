@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/model/news_article.dart';
-import 'package:news_reader/screens/articles/widgets/news_article_widget.dart';
+import 'package:mercury/model/news_article.dart';
+import 'package:mercury/screens/articles/widgets/news_article_widget.dart';
 
 class NewsArticlesListView extends StatelessWidget {
   final List<NewsArticle> articles;

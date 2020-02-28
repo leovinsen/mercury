@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/model/news_source.dart';
+import 'package:mercury/model/news_source.dart';
 
 import 'news_sources_listview.dart';
 

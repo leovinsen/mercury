@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/model/news_source.dart';
-import 'package:news_reader/screens/articles/articles_page.dart';
+import 'package:mercury/model/news_source.dart';
+import 'package:mercury/screens/articles/articles_page.dart';
 
 import 'news_source_information.dart';
 

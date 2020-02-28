@@ -1,4 +1,4 @@
-import 'package:news_reader/exception/result_more_than_one_exception.dart';
+import 'package:mercury/exception/result_more_than_one_exception.dart';
 import 'package:sqflite/sqlite_api.dart';
 
 abstract class BaseDao<T> {

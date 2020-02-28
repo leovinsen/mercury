@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_reader/config/config.dart';
-import 'package:news_reader/screens/articles/articles_page.dart';
-import 'package:news_reader/screens/articles_webview/news_article_webview.dart';
-import 'package:news_reader/screens/root/root_page.dart';
-import 'package:news_reader/screens/splash/splash_page.dart';
-import 'package:news_reader/service/articles_api_service.dart';
+import 'package:mercury/config/config.dart';
+import 'package:mercury/screens/articles/articles_page.dart';
+import 'package:mercury/screens/articles_webview/news_article_webview.dart';
+import 'package:mercury/screens/root/root_page.dart';
+import 'package:mercury/screens/splash/splash_page.dart';
+import 'package:mercury/service/articles_api_service.dart';
 
 import 'bloc/articles/articles_bloc.dart';
 
@@ -43,7 +43,7 @@ class App extends StatelessWidget {
           final ArticlesPageArguments args = settings.arguments;
 
           return MaterialPageRoute(
-            builder: (_) => BlocProvider(
+            builder: (_) => BlocProvider<ArticlesBloc>(
               create: (_) => ArticlesBloc(ArticlesApiService()),
               child: ArticlesPage(
                 newsSourceId: args.newsSourceId,

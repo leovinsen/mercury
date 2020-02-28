@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:news_reader/base/base_api_service.dart';
-import 'package:news_reader/model/news_source.dart';
-import 'package:news_reader/model/sources_response.dart';
+import 'package:mercury/base/base_api_service.dart';
+import 'package:mercury/model/news_source.dart';
+import 'package:mercury/model/sources_response.dart';
 
 class SourcesApiService extends BaseApiService {
   SourcesApiService() : super("sources");

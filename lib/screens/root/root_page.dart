@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_reader/bloc/favorite_articles/favorite_articles_bloc.dart';
-import 'package:news_reader/bloc/home/home_bloc_commons.dart';
-import 'package:news_reader/database/article_dao.dart';
-import 'package:news_reader/global.dart';
-import 'package:news_reader/service/sources_api_service.dart';
-import 'package:news_reader/widgets/drawer_tile.dart';
-import 'package:news_reader/widgets/mercury_drawer_header.dart';
+import 'package:mercury/bloc/favorite_articles/favorite_articles_bloc.dart';
+import 'package:mercury/bloc/home/home_bloc_commons.dart';
+import 'package:mercury/database/article_dao.dart';
+import 'package:mercury/global.dart';
+import 'package:mercury/service/sources_api_service.dart';
+import 'package:mercury/widgets/drawer_tile.dart';
+import 'package:mercury/widgets/mercury_drawer_header.dart';
 
 import 'widgets/favorite_articles_screen.dart';
 import 'widgets/home_screen.dart';

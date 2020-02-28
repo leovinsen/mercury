@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:news_reader/base/base_api_service.dart';
-import 'package:news_reader/exception/articles_api_exception.dart';
-import 'package:news_reader/model/articles_response.dart';
-import 'package:news_reader/model/news_article.dart';
+import 'package:mercury/base/base_api_service.dart';
+import 'package:mercury/exception/articles_api_exception.dart';
+import 'package:mercury/model/articles_response.dart';
+import 'package:mercury/model/news_article.dart';
 
 class ArticlesApiService extends BaseApiService {
   ArticlesApiService() : super("everything");

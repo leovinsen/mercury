@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:news_reader/model/news_source.dart';
+import 'package:mercury/model/news_source.dart';
 
 abstract class HomeState extends Equatable {
   const HomeState();

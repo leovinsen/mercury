@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:news_reader/exception/articles_api_exception.dart';
-import 'package:news_reader/main.dart';
-import 'package:news_reader/service/articles_api_service.dart';
+import 'package:mercury/exception/articles_api_exception.dart';
+import 'package:mercury/main.dart';
+import 'package:mercury/service/articles_api_service.dart';
 
 void main() {
   Main();

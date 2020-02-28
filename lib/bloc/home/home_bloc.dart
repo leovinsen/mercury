@@ -1,6 +1,6 @@
-import 'package:news_reader/base/base_bloc.dart';
-import 'package:news_reader/model/news_source.dart';
-import 'package:news_reader/service/sources_api_service.dart';
+import 'package:mercury/base/base_bloc.dart';
+import 'package:mercury/model/news_source.dart';
+import 'package:mercury/service/sources_api_service.dart';
 
 import 'home_event.dart';
 import 'home_state.dart';

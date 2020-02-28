@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:news_reader/main.dart';
-import 'package:news_reader/service/sources_api_service.dart';
+import 'package:mercury/main.dart';
+import 'package:mercury/service/sources_api_service.dart';
 
 void main(){
 

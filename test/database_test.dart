@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:news_reader/database/article_dao.dart';
-import 'package:news_reader/database/article_schema.dart';
-import 'package:news_reader/model/news_article.dart';
+import 'package:mercury/database/article_dao.dart';
+import 'package:mercury/database/article_schema.dart';
+import 'package:mercury/model/news_article.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_ffi_test/sqflite_ffi_test.dart';
 

@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:news_reader/model/news_article.dart';
+import 'package:mercury/model/news_article.dart';
 import 'package:to_string/to_string.dart';
 
 part 'articles_response.g.dart';

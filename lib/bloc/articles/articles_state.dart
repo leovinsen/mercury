@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:news_reader/model/news_article.dart';
+import 'package:mercury/model/news_article.dart';
 
 abstract class ArticlesState extends Equatable {
   const ArticlesState();

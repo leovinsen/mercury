@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:news_reader/config/config.dart';
+import 'package:mercury/config/config.dart';
 
 abstract class BaseApiService {
   final Dio dio = Dio();

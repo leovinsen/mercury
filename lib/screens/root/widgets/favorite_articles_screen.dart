@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_reader/bloc/favorite_articles/favorite_articles_bloc_commons.dart';
-import 'package:news_reader/screens/articles/widgets/news_articles_listview.dart';
-import 'package:news_reader/widgets/my_circular_progress_indicator.dart';
+import 'package:mercury/bloc/favorite_articles/favorite_articles_bloc_commons.dart';
+import 'package:mercury/screens/articles/widgets/news_articles_listview.dart';
+import 'package:mercury/widgets/my_circular_progress_indicator.dart';
 
 class FavoriteArticlesScreen extends StatelessWidget {
   static const appbarTitle = "Your Favorites";

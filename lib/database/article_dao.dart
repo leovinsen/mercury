@@ -1,7 +1,7 @@
-import 'package:news_reader/base/base_dao.dart';
-import 'package:news_reader/database/article_schema.dart';
-import 'package:news_reader/exception/result_more_than_one_exception.dart';
-import 'package:news_reader/model/news_article.dart';
+import 'package:mercury/base/base_dao.dart';
+import 'package:mercury/database/article_schema.dart';
+import 'package:mercury/exception/result_more_than_one_exception.dart';
+import 'package:mercury/model/news_article.dart';
 import 'package:sqflite/sqlite_api.dart';
 
 class ArticleDao extends BaseDao<NewsArticle> {

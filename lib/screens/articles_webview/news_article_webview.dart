@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/database/article_dao.dart';
-import 'package:news_reader/global.dart';
-import 'package:news_reader/model/news_article.dart';
-import 'package:news_reader/screens/articles_webview/widgets/favorite_button.dart';
-import 'package:news_reader/widgets/simple_alert_dialog.dart';
+import 'package:mercury/database/article_dao.dart';
+import 'package:mercury/global.dart';
+import 'package:mercury/model/news_article.dart';
+import 'package:mercury/screens/articles_webview/widgets/favorite_button.dart';
+import 'package:mercury/widgets/simple_alert_dialog.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
