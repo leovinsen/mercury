@@ -9,16 +9,22 @@ class AppTitle extends StatelessWidget {
         Text(
           'Mercury',
           style:
-              Theme.of(context).textTheme.display1.apply(color: Colors.black),
+              Theme.of(context).textTheme.display2.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           height: 4.0,
         ),
         Container(
-          height: 2.0,
-          width: 150.0,
+          height: 4.0,
+          width: 200.0,
           color: Colors.black,
-        )
+        ),
+        SizedBox(height: 4.0,),
+        Container(
+          height: 3.0,
+          width: 190.0,
+          color: Colors.black,
+        ),
       ],
     );
   }
