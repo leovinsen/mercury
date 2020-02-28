@@ -62,12 +62,18 @@ class _ArticlesPageState extends State<ArticlesPage> {
                   if (state is InitialArticlesState) {
                     BlocProvider.of<ArticlesBloc>(context)
                         .add(LoadArticlesBySource(widget.newsSourceId, ""));
-                    return Center(
+                    return Container(
+                      height: 470.0,
+                      alignment: Alignment.center,
+                      color: Colors.white,
                       child: MyCircularProgressIndicator(),
                     );
                   }
                   if (state is LoadingNewArticles) {
-                    return Center(
+                    return Container(
+                      height: 470.0,
+                      alignment: Alignment.center,
+                      color: Colors.white,
                       child: MyCircularProgressIndicator(),
                     );
                   }
