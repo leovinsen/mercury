@@ -46,6 +46,12 @@ dev_dependencies:
       url: git://github.com/tekartik/sqflite_more
       ref: dart2
       path: sqflite_ffi_test
+  flutter_launcher_icons: "^0.7.3"
+
+flutter_icons:
+  android: "ic_launcher" 
+  ios: true
+  image_path: "assets/ic_launcher.png"
 
 
 # For information on the generic Dart part of this file, see the
