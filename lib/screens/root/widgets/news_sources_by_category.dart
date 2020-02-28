@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_reader/model/news_source.dart';
-import 'package:news_reader/screens/home/widgets/news_sources_listview.dart';
+
+import 'news_sources_listview.dart';
 
 class NewsSourcesByCategory extends StatelessWidget {
   final Map<String, List<NewsSource>> newsSourcesMap;

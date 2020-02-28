@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_reader/bloc/home/home_bloc_commons.dart';
-import 'package:news_reader/screens/home/widgets/news_sources_by_category.dart';
 import 'package:news_reader/widgets/my_circular_progress_indicator.dart';
 
+import 'news_sources_by_category.dart';
+
 class HomeScreen extends StatelessWidget {
+  static const appBarTitle = "Home";
   @override
   Widget build(BuildContext context) {
     return Container(
