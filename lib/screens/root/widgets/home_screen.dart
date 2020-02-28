@@ -14,9 +14,6 @@ class HomeScreen extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: <Widget>[
-          SizedBox(
-            height: 20.0,
-          ),
           Flexible(
             child: BlocBuilder<HomeBloc, HomeState>(
               builder: (_, state) {
