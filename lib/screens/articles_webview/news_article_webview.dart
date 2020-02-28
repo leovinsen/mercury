@@ -42,6 +42,8 @@ class _NewsArticleWebViewState extends State<NewsArticleWebView> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        titleSpacing: 0.0,
+        title: Text(widget.article.url, style: Theme.of(context).textTheme.body1,),
         actions: <Widget>[
           _isSaved
               ? UnfavoriteButton(
