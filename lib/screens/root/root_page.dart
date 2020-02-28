@@ -5,6 +5,8 @@ import 'package:news_reader/bloc/home/home_bloc_commons.dart';
 import 'package:news_reader/database/article_dao.dart';
 import 'package:news_reader/database/database.dart';
 import 'package:news_reader/service/sources_api_service.dart';
+import 'package:news_reader/widgets/drawer_tile.dart';
+import 'package:news_reader/widgets/mercury_drawer_header.dart';
 
 import 'widgets/favorite_articles_screen.dart';
 import 'widgets/home_screen.dart';
@@ -38,16 +40,19 @@ class _RootPageState extends State<RootPage> {
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
-                onTap: () => _selectWidget(0),
-              ),
-              ListTile(
-                leading: Icon(Icons.favorite),
-                title: Text('Favorited Articles'),
-                onTap: () => _selectWidget(1),
-              )
+              MercuryDrawerHeader(),
+              DrawerTile(
+                  chosenIndex: _chosenPage,
+                  tileIndex: 0,
+                  tileName: 'Home',
+                  onTap: () => _selectWidget(0),
+                  iconData: Icons.home),
+              DrawerTile(
+                  chosenIndex: _chosenPage,
+                  tileIndex: 1,
+                  tileName: 'Favorited Articles',
+                  onTap: () => _selectWidget(1),
+                  iconData: Icons.favorite)
             ],
           ),
         ),
