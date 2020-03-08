@@ -88,9 +88,7 @@ class _RootPageState extends State<RootPage> {
     switch (_chosenPage) {
       case 0:
         return BlocProvider<HomeBloc>(
-          create: (_) {
-            return HomeBloc(SourcesApiService());
-          },
+          create: (_) => HomeBloc(SourcesApiService()),
           child: HomeScreen(),
         );
       case 1:
