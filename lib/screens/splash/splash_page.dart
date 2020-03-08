@@ -6,7 +6,7 @@ import 'package:mercury/screens/root/root_page.dart';
 import 'package:mercury/screens/root/widgets/app_title.dart';
 
 class SplashPage extends StatefulWidget {
-  static const route = "/splash";
+  static const route = "/";
 
   @override
   _SplashPageState createState() => _SplashPageState();

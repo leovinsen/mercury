@@ -13,7 +13,7 @@ import 'widgets/favorite_articles_screen.dart';
 import 'widgets/home_screen.dart';
 
 class RootPage extends StatefulWidget {
-  static const route = "/";
+  static const route = "/root";
 
   @override
   _RootPageState createState() => _RootPageState();
