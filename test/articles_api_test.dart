@@ -16,7 +16,7 @@ void main() {
   test('Testing Articles API search query exception', () async {
     var exceptionThrown = false;
     try {
-      var sources = await articlesApi.getBySourceIdAndQuery("abc-news", null);
+      await articlesApi.getBySourceIdAndQuery("abc-news", null);
     } on SearchQueryIsNullException {
       exceptionThrown = true;
     }
@@ -27,7 +27,7 @@ void main() {
   test('Testing Articles API news source exception', () async {
     var exceptionThrown = false;
     try {
-      var sources = await articlesApi.getBySourceIdAndQuery(null, "Trump");
+      articlesApi.getBySourceIdAndQuery(null, "Trump");
     } on NewsSourceIsNullException {
       exceptionThrown = true;
     }
