@@ -13,7 +13,7 @@ import 'widgets/favorite_articles_screen.dart';
 import 'widgets/home_screen.dart';
 
 class RootPage extends StatefulWidget {
-  static const route = "/";
+  static const route = "/root";
 
   @override
   _RootPageState createState() => _RootPageState();
@@ -88,9 +88,7 @@ class _RootPageState extends State<RootPage> {
     switch (_chosenPage) {
       case 0:
         return BlocProvider<HomeBloc>(
-          create: (_) {
-            return HomeBloc(SourcesApiService());
-          },
+          create: (_) => HomeBloc(SourcesApiService()),
           child: HomeScreen(),
         );
       case 1:
