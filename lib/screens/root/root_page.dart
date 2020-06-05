@@ -92,9 +92,8 @@ class _RootPageState extends State<RootPage> {
           child: HomeScreen(),
         );
       case 1:
-        return BlocProvider<FavoriteArticlesBloc>(
-          create: (_) => FavoriteArticlesBloc(sl.get<ArticleDao>()),
-          child: FavoriteArticlesScreen(),
+        return FavoriteArticlesScreen(
+          dao: sl.get<ArticleDao>(),
         );
       case 2:
         return SettingsScreen();
