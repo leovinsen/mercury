@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mercury/database/article_schema.dart';
 import 'package:to_string/to_string.dart';
 
 part 'news_article.g.dart';
@@ -40,7 +41,16 @@ class NewsArticle {
 
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
 
-  Map<String, dynamic> toDB() => toJson();
+  Map<String, dynamic> toDB() => <String, dynamic> {
+    articleId: id,
+    articleAuthor: author,
+    articleTitle: title,
+    articleDescription: description,
+    articleUrl: url,
+    articleUrlToImage: urlToImage,
+    articlePublishedAt: publishedAt?.toIso8601String(),
+    articleContent: content,
+  };
 
   @override
   String toString() => _$NewsArticleToString(this);
