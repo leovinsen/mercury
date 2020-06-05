@@ -15,7 +15,7 @@ class FavoriteArticlesBloc extends BaseBloc<FavoriteArticlesEvent, FavoriteArtic
   @override
   Stream<FavoriteArticlesState> mapEventToState(FavoriteArticlesEvent event) async* {
     if(event is LoadFavoriteArticles) {
-      var articles = await _articleDao.getAll();
+      var articles = await _articleDao.findAll();
       yield FavoriteArticlesLoaded(articles);
     }
   }

@@ -1,51 +1,60 @@
-import 'package:mercury/base/base_dao.dart';
 import 'package:mercury/database/article_schema.dart';
 import 'package:mercury/exception/result_more_than_one_exception.dart';
 import 'package:mercury/model/news_article.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-class ArticleDao extends BaseDao<NewsArticle> {
-  ArticleDao(Database db) : super(db);
+class ArticleDao {
+  final Database _db;
 
-  @override
-  NewsArticle entityFromDB(Map<String, dynamic> map) {
-    return NewsArticle.fromDB(map);
+  const ArticleDao(this._db);
+
+  ///Equivalent to "SELECT * FROM `$tableArticle`;"
+  Future<List<NewsArticle>> findAll() async {
+    ///Each map represents a record in a Table. Similar to a JSON object.
+    List<Map<String, dynamic>> records = await _db.query(tableArticle);
+
+    return records.map((record) => NewsArticle.fromDB(record)).toList();
   }
 
-  @override
-  Map<String, dynamic> entityToDB(NewsArticle entity) {
-    return entity.toDB();
-  }
-
-  @override
-  int primaryKeyWhereArgs(NewsArticle entity) {
-    return entity.id;
-  }
-
-  @override
-  String primaryKeyWhereClause() {
-    return 'id = ?';
-  }
-
-  @override
-  String tableNameInDB() {
-    return tableArticle;
-  }
-
+  ///Equivalent to "SELECT * FROM `$tableArticle` WHERE `$articleUrl` = `$url`;""
   Future<NewsArticle> findByUrl(String url) async {
-    var result = await query(
-      where: 'url = ?',
+    List<Map<String, dynamic>> records = await _db.query(
+      tableArticle,
+      where: '$articleUrl = ?',
       whereArgs: [url],
     );
 
-    if (result.length == 0) return null;
+    if (records.length == 0) return null;
 
-    if (result.length > 1) throw ResultMoreThanOneException(result);
+    //There should only be one record, as each url is unique
+    if (records.length > 1) throw ResultMoreThanOneException(records);
 
-    return NewsArticle.fromDB(result[0]);
+    return NewsArticle.fromDB(records[0]);
   }
 
+  ///Equivalent to "INSERT INTO `$tableArticle`"
+  Future<int> add(NewsArticle article) async {
+    var result = await _db.insert(
+      tableArticle,
+      article.toDB(),
+    );
+
+    return result;
+  }
+
+  ///Equivalent to "DELETE FROM `$tableArticle` WHERE `$articleUrl` = `$url`;"
   Future<int> deleteByUrl(String url) async {
-    return await db.delete(tableNameInDB(), where: 'url=?', whereArgs: [url]);
+    int deletedRowsCount = await _db.delete(
+      tableArticle,
+      where: '$articleUrl = ?',
+      whereArgs: [url],
+    );
+
+    return deletedRowsCount;
+  }
+
+  ///Equivalent to "DELETE FROM `$tableArticle`;"
+  Future<int> deleteAll() async {
+    return await _db.delete(tableArticle);
   }
 }
