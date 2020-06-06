@@ -37,10 +37,20 @@ class NewsArticle {
     json['content'] as String,
   );
 
-  factory NewsArticle.fromDB(Map<String, dynamic> map) => NewsArticle.fromJson(map);
-
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
 
+  factory NewsArticle.fromDB(Map<String, dynamic> map) =>  NewsArticle(
+    map[articleId] as int,
+    map[articleAuthor] as String,
+    map[articleTitle] as String,
+    map[articleDescription] as String,
+    map[articleUrl] as String,
+    map[articleUrlToImage] as String,
+    map[articlePublishedAt] == null
+        ? null
+        : DateTime.parse(map[articlePublishedAt] as String),
+    map[articleContent] as String,
+  );
   Map<String, dynamic> toDB() => <String, dynamic> {
     articleId: id,
     articleAuthor: author,
