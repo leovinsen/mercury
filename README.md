@@ -1,11 +1,20 @@
 # Mercury
 
-A Flutter news app which fetches news from newsapi.org. Developed for Flutter Jakarta - App Challenge #1.
-The name 'Mercury' comes from Roman God Mercury, a god of communications and messages, also equivalent to Hermes in Greek mythology. 
+A Flutter news reader app which fetches news from ![newsapi.org](https://www.newsapi.org), which was developed for Flutter Jakarta App Challenge #1.
 
-News are fetched from newsapi.org.
+The name *Mercury* comes from Roman God *Mercury*, a god of communications and messages also known as *Hermes* in Greek mythology. 
 
-## Features (v1.0)
+### Design
+
+The app features a black and white theme inspired from [Newspaper by Andrew Drozd -- Dribbble](https://dribbble.com/shots/7229348-Newspaper), and uses the font [Merriweather](https://fonts.google.com/specimen/Merriweather).
+
+### Screenshots
+
+<pre>
+<img src="screenshots/homepage.png" width="270" height="480" /> <img src="screenshots/homepage_opened.png" width="270" height="480" /> <img src="screenshots/articlespage.png" width="270" height="480" /> <img src="screenshots/webview.png" width="270" height="480" /> <img src="screenshots/favoritespage.png" width="270" height="480" /> 
+</pre>
+
+# Features
 
 - Select curated list of news sources which are divided into three categories: English, Mandarin and Others.
 - Tap on a source to see articles from that source. 
