@@ -7,7 +7,7 @@ class AppTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Image.asset(
-          'assets/ic_launcher.png',
+          'assets/logo_transparent.png',
           height: 250,
           width: 250,
         ),

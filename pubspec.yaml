@@ -72,6 +72,7 @@ flutter:
   assets:
    - assets/placeholder_no_image.png
    - assets/ic_launcher.png
+   - assets/logo_transparent.png
    - assets/api_key.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

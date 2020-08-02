@@ -8,6 +8,8 @@ The name *Mercury* comes from Roman God *Mercury*, a god of communications and m
 
 The app features a black and white theme inspired from [Newspaper by Andrew Drozd -- Dribbble](https://dribbble.com/shots/7229348-Newspaper), and uses the font [Merriweather](https://fonts.google.com/specimen/Merriweather).
 
+*Mercury* logo belongs to [netclipart.com](https://www.netclipart.com/isee/TRixmb_mercury-png-mercury-roman-god-hat/)
+
 ### Screenshots
 
 <pre>
